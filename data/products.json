@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ordinary-niacinamide",
+    "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+    "category": "The Ordinary",
+    "asin": "B07QBQXFHZ",
+    "description": "Beliebtes Serum für Hautbild, Poren und Talgkontrolle.",
+    "hot": true,
+    "affiliateTag": "premiumtrend-21",
+    "amazonUrl": "https://www.amazon.de/dp/B07QBQXFHZ?tag=premiumtrend-21",
+    "priceText": "Preis bei Amazon prüfen",
+    "lastChecked": "2026-06-09"
+  },
+  {
+    "id": "ordinary-hyaluronic",
+    "name": "The Ordinary Hyaluronic Acid 2% + B5",
+    "category": "The Ordinary",
+    "asin": "B07L4SHRDG",
+    "description": "Feuchtigkeitsserum für die tägliche Hautpflege.",
+    "hot": false,
+    "affiliateTag": "premiumtrend-21",
+    "amazonUrl": "https://www.amazon.de/dp/B07L4SHRDG?tag=premiumtrend-21",
+    "priceText": "Preis bei Amazon prüfen",
+    "lastChecked": "2026-06-09"
+  },
+  {
+    "id": "laroche-anthelios",
+    "name": "La Roche-Posay Anthelios SPF 50+",
+    "category": "Sonnenpflege",
+    "asin": "B003JUZG4G",
+    "description": "Sonnenschutz für Gesicht und Alltag.",
+    "hot": true,
+    "affiliateTag": "premiumtrend-21",
+    "amazonUrl": "https://www.amazon.de/dp/B003JUZG4G?tag=premiumtrend-21",
+    "priceText": "Preis bei Amazon prüfen",
+    "lastChecked": "2026-06-09"
+  },
+  {
+    "id": "sony-wh1000xm5",
+    "name": "Sony WH-1000XM5 Kopfhörer",
+    "category": "Technik",
+    "asin": "B09XS7JWHH",
+    "description": "Kabellose Kopfhörer mit Noise Cancelling.",
+    "hot": true,
+    "affiliateTag": "premiumtrend-21",
+    "amazonUrl": "https://www.amazon.de/dp/B09XS7JWHH?tag=premiumtrend-21",
+    "priceText": "Preis bei Amazon prüfen",
+    "lastChecked": "2026-06-09"
+  }
+]
