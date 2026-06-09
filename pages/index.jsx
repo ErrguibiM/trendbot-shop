@@ -22,89 +22,157 @@ function getSeason() {
 function getSeasonInfo() {
   const season = getSeason();
   const infos = {
-    weihnachten:  { label: "🎄 Weihnachten", desc: "Perfekte Geschenke für die Liebsten", color: "#c0392b", bg: "#fff5f5" },
-    ostern:       { label: "🐣 Ostern", desc: "Frühlingsfrische Geschenke & Pflege", color: "#e07b39", bg: "#fff8f4" },
-    valentinstag: { label: "❤️ Valentinstag", desc: "Romantische Geschenke", color: "#c0397a", bg: "#fff0f7" },
-    muttertag:    { label: "💐 Muttertag", desc: "Das Beste für die beste Mama", color: "#9b59b6", bg: "#f9f5ff" },
-    sommer:       { label: "☀️ Sommer", desc: "Sonnenschutz & frische Düfte", color: "#d4880a", bg: "#fff8ec" },
-    herbst:       { label: "🍂 Herbst", desc: "Intensive Pflege für kühlere Tage", color: "#7a5c3a", bg: "#fdf6ee" },
-    fruehling:    { label: "🌸 Frühling", desc: "Frische Pflege für neuen Start", color: "#217a45", bg: "#f0fff5" },
-    winter:       { label: "❄️ Winter", desc: "Intensive Pflege gegen Kälte", color: "#1a6fb5", bg: "#f0f6ff" },
+    weihnachten:  { label: "🎄 Weihnachten", desc: "Perfekte Geschenke für die Liebsten", color: "#c0392b", bg: "linear-gradient(135deg, #fff5f5, #ffe8e8)" },
+    ostern:       { label: "🐣 Ostern", desc: "Frühlingsfrische Geschenke & Pflege", color: "#e07b39", bg: "linear-gradient(135deg, #fff8f4, #ffeedd)" },
+    valentinstag: { label: "❤️ Valentinstag", desc: "Romantische Geschenke", color: "#c0397a", bg: "linear-gradient(135deg, #fff0f7, #ffe0ef)" },
+    muttertag:    { label: "💐 Muttertag", desc: "Das Beste für die beste Mama", color: "#9b59b6", bg: "linear-gradient(135deg, #f9f5ff, #ede0ff)" },
+    sommer:       { label: "☀️ Sommer", desc: "Sonnenschutz & frische Düfte", color: "#d4880a", bg: "linear-gradient(135deg, #fff8ec, #ffecc0)" },
+    herbst:       { label: "🍂 Herbst", desc: "Intensive Pflege für kühlere Tage", color: "#7a5c3a", bg: "linear-gradient(135deg, #fdf6ee, #f5e6d0)" },
+    fruehling:    { label: "🌸 Frühling", desc: "Frische Pflege für neuen Start", color: "#217a45", bg: "linear-gradient(135deg, #f0fff5, #d0ffe0)" },
+    winter:       { label: "❄️ Winter", desc: "Intensive Pflege gegen Kälte", color: "#1a6fb5", bg: "linear-gradient(135deg, #f0f6ff, #d0e8ff)" },
   };
   return { season, ...infos[season] };
 }
 
 const ALL_PRODUCTS = [
-  // PARFUM - Ganzjährig
-  { id: 1, name: "Chanel N°5 Eau de Parfum", category: "Parfum", price: 129.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&h=400&fit=crop", description: "Das ikonische Chanel Parfum, 100ml", search: "chanel no 5 eau de parfum 100ml", hot: true },
-  { id: 2, name: "Chanel Coco Mademoiselle", category: "Parfum", price: 119.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=400&fit=crop", description: "Elegant & modern, 100ml", search: "chanel coco mademoiselle parfum", hot: true },
-  { id: 3, name: "Dior Miss Dior Parfum", category: "Parfum", price: 109.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&h=400&fit=crop", description: "Romantisch & blumig, 100ml", search: "dior miss dior eau de parfum", hot: false },
+  // PARFUM
+  { id: 1, name: "Chanel N°5 Eau de Parfum", category: "Parfum", price: 129.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&h=500&fit=crop&q=80",
+    description: "Das ikonische Chanel Parfum, 100ml", search: "chanel no 5 eau de parfum 100ml", hot: true },
+  { id: 2, name: "Chanel Coco Mademoiselle", category: "Parfum", price: 119.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=500&h=500&fit=crop&q=80",
+    description: "Elegant & modern, 100ml", search: "chanel coco mademoiselle parfum", hot: true },
+  { id: 3, name: "Dior Miss Dior Parfum", category: "Parfum", price: 109.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&h=500&fit=crop&q=80",
+    description: "Romantisch & blumig, 100ml", search: "dior miss dior eau de parfum", hot: false },
 
-  // THE ORDINARY - Ganzjährig
-  { id: 4, name: "The Ordinary Niacinamide 10%", category: "The Ordinary", price: 9.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop", description: "Hochdosiertes Serum für Poren, 30ml", search: "the ordinary niacinamide 10", hot: true },
-  { id: 5, name: "The Ordinary Hyaluronic Acid", category: "The Ordinary", price: 10.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop", description: "Tiefe Hydration Serum, 30ml", search: "the ordinary hyaluronic acid 2", hot: false },
-  { id: 6, name: "The Ordinary Retinol 0.5%", category: "The Ordinary", price: 8.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop", description: "Anti-Aging Serum, 30ml", search: "the ordinary retinol 0.5", hot: false },
+  // THE ORDINARY
+  { id: 4, name: "The Ordinary Niacinamide 10%", category: "The Ordinary", price: 9.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=500&h=500&fit=crop&q=80",
+    description: "Hochdosiertes Serum für Poren, 30ml", search: "the ordinary niacinamide 10", hot: true },
+  { id: 5, name: "The Ordinary Hyaluronic Acid", category: "The Ordinary", price: 10.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&h=500&fit=crop&q=80",
+    description: "Tiefe Hydration Serum, 30ml", search: "the ordinary hyaluronic acid 2", hot: false },
+  { id: 6, name: "The Ordinary Retinol 0.5%", category: "The Ordinary", price: 8.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=500&fit=crop&q=80",
+    description: "Anti-Aging Serum, 30ml", search: "the ordinary retinol 0.5", hot: false },
 
-  // CAUDALIE - Ganzjährig
-  { id: 7, name: "Caudalie Beauty Elixir", category: "Caudalie", price: 49.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop", description: "Luxus Gesichtsspray, 100ml", search: "caudalie beauty elixir", hot: true },
-  { id: 8, name: "Caudalie Vinoperfect Serum", category: "Caudalie", price: 59.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1583209814683-c81379428101?w=400&h=400&fit=crop", description: "Gegen Pigmentflecken, 30ml", search: "caudalie vinoperfect serum", hot: false },
+  // CAUDALIE
+  { id: 7, name: "Caudalie Beauty Elixir", category: "Caudalie", price: 49.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&h=500&fit=crop&q=80",
+    description: "Luxus Gesichtsspray, 100ml", search: "caudalie beauty elixir", hot: true },
+  { id: 8, name: "Caudalie Vinoperfect Serum", category: "Caudalie", price: 59.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1601049676869-702ea24cfd58?w=500&h=500&fit=crop&q=80",
+    description: "Gegen Pigmentflecken, 30ml", search: "caudalie vinoperfect serum", hot: false },
 
-  // SEPHORA - Ganzjährig
-  { id: 9, name: "Sephora Lippenstift Set", category: "Sephora", price: 29.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1586495777744-4e6232a7eb79?w=400&h=400&fit=crop", description: "12 Farben Set — Matt & Gloss", search: "sephora lippenstift set matt", hot: true },
-  { id: 10, name: "Sephora Parfum Favorites Set", category: "Sephora", price: 69.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?w=400&h=400&fit=crop", description: "8 Mini Parfums zum Testen", search: "sephora parfum mini set favorites", hot: true },
-  { id: 11, name: "Sephora Highlighter Palette", category: "Sephora", price: 24.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop", description: "6 Highlighter für strahlenden Look", search: "sephora highlighter palette glow", hot: false },
+  // SEPHORA
+  { id: 9, name: "Sephora Lippenstift Set", category: "Sephora", price: 29.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1586495777744-4e6232a7eb79?w=500&h=500&fit=crop&q=80",
+    description: "12 Farben Set — Matt & Gloss", search: "sephora lippenstift set matt", hot: true },
+  { id: 10, name: "Sephora Parfum Favorites Set", category: "Sephora", price: 69.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1517840901100-8179e982acb7?w=500&h=500&fit=crop&q=80",
+    description: "8 Mini Parfums zum Testen", search: "sephora parfum mini set favorites", hot: true },
+  { id: 11, name: "Sephora Highlighter Palette", category: "Sephora", price: 24.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&h=500&fit=crop&q=80",
+    description: "6 Highlighter für strahlenden Look", search: "sephora highlighter palette glow", hot: false },
 
-  // PATAGONIA - Ganzjährig
-  { id: 12, name: "Patagonia Nano Puff Jacke", category: "Patagonia", price: 249.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop", description: "Ultraleichte Daunenjacke, nachhaltig", search: "patagonia nano puff jacket", hot: true },
-  { id: 13, name: "Patagonia Fleece Jacke", category: "Patagonia", price: 179.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop", description: "Klassische Synchilla Fleecejacke", search: "patagonia fleece jacket synchilla", hot: true },
-  { id: 14, name: "Patagonia Better Sweater", category: "Patagonia", price: 149.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&h=400&fit=crop", description: "Nachhaltiger Fleece-Pullover", search: "patagonia better sweater fleece", hot: false },
+  // PATAGONIA
+  { id: 12, name: "Patagonia Nano Puff Jacke", category: "Patagonia", price: 249.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1604644401890-0bd678c83788?w=500&h=500&fit=crop&q=80",
+    description: "Ultraleichte Daunenjacke, nachhaltig", search: "patagonia nano puff jacket", hot: true },
+  { id: 13, name: "Patagonia Fleece Jacke", category: "Patagonia", price: 179.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&h=500&fit=crop&q=80",
+    description: "Klassische Synchilla Fleecejacke", search: "patagonia fleece jacket synchilla", hot: true },
+  { id: 14, name: "Patagonia Better Sweater", category: "Patagonia", price: 149.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&h=500&fit=crop&q=80",
+    description: "Nachhaltiger Fleece-Pullover", search: "patagonia better sweater fleece", hot: false },
 
-  // KAWAII - Ganzjährig
-  { id: 15, name: "Kawaii Oversized Hoodie Pastel", category: "Kawaii", price: 49.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop", description: "Süßer Hoodie in Pastellfarben", search: "kawaii oversized hoodie pastel", hot: true },
-  { id: 16, name: "Kawaii Mini Skirt Set", category: "Kawaii", price: 39.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop", description: "Japanischer Stil Mini Rock Set", search: "kawaii mini skirt japanese style", hot: true },
-  { id: 17, name: "Kawaii Cardigan Pastel", category: "Kawaii", price: 59.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop", description: "Flauschiger Cardigan japanischer Stil", search: "kawaii cardigan pastel fluffy", hot: false },
+  // KAWAII
+  { id: 15, name: "Kawaii Oversized Hoodie", category: "Kawaii", price: 49.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=500&fit=crop&q=80",
+    description: "Süßer Hoodie in Pastellfarben", search: "kawaii oversized hoodie pastel", hot: true },
+  { id: 16, name: "Kawaii Mini Skirt Set", category: "Kawaii", price: 39.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&h=500&fit=crop&q=80",
+    description: "Japanischer Stil Mini Rock", search: "kawaii mini skirt japanese style", hot: true },
+  { id: 17, name: "Kawaii Cardigan Pastel", category: "Kawaii", price: 59.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&h=500&fit=crop&q=80",
+    description: "Flauschiger Cardigan japanischer Stil", search: "kawaii cardigan pastel fluffy", hot: false },
 
-  // TRESORE - Ganzjährig
-  { id: 18, name: "Wächter Tresor DIN 24 Stufe A", category: "Sicherheit", price: 189.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "Zertifizierter Tresor DIN 24 Stufe A, Fingerabdruck", search: "wächter tresor DIN 24 stufe A fingerabdruck", hot: true },
-  { id: 19, name: "Fingerabdruck Tresor Premium", category: "Sicherheit", price: 149.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "Biometrischer Tresor für Zuhause, 30L", search: "fingerabdruck tresor biometrisch premium", hot: true },
-  { id: 20, name: "Wandtresor mit Zahlenschloss", category: "Sicherheit", price: 129.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "Einbautresor hinter Bild, feuerfest", search: "wandtresor zahlenschloss feuerfest einbau", hot: false },
+  // SICHERHEIT - TRESORE
+  { id: 18, name: "Wächter Tresor DIN 24 Stufe A", category: "Sicherheit", price: 189.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=500&h=500&fit=crop&q=80",
+    description: "Zertifizierter Tresor mit Fingerabdruck", search: "wächter tresor DIN 24 stufe A", hot: true },
+  { id: 19, name: "Fingerabdruck Tresor Premium", category: "Sicherheit", price: 149.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=500&h=500&fit=crop&q=80",
+    description: "Biometrischer Tresor, 30L", search: "fingerabdruck tresor biometrisch premium", hot: true },
+  { id: 20, name: "Wandtresor Feuerfest", category: "Sicherheit", price: 129.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=500&h=500&fit=crop&q=80",
+    description: "Einbautresor hinter Bild, feuerfest", search: "wandtresor zahlenschloss feuerfest", hot: false },
 
-  // KAMERAS - Ganzjährig
-  { id: 21, name: "Reolink 4K Überwachungskamera Set", category: "Sicherheit", price: 299.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=400&h=400&fit=crop", description: "4x 4K Außenkameras mit Nachtsicht", search: "reolink 4k überwachungskamera set aussen", hot: true },
-  { id: 22, name: "Ring Video Doorbell Pro", category: "Sicherheit", price: 199.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "HD Türklingel mit Kamera & Alexa", search: "ring video doorbell pro alexa", hot: true },
-  { id: 23, name: "Arlo Pro 4 Außenkamera", category: "Sicherheit", price: 179.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=400&h=400&fit=crop", description: "2K Kamera, kabellos, Farbige Nachtsicht", search: "arlo pro 4 aussenkamera kabellos", hot: false },
-  { id: 24, name: "TP-Link Tapo Innenkamera", category: "Sicherheit", price: 39.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=400&h=400&fit=crop", description: "1080p Innenkamera mit Bewegungsalarm", search: "tp-link tapo innenkamera bewegungsmelder", hot: false },
+  // SICHERHEIT - KAMERAS
+  { id: 21, name: "Reolink 4K Kamera Set", category: "Sicherheit", price: 299.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=500&h=500&fit=crop&q=80",
+    description: "4x 4K Außenkameras mit Nachtsicht", search: "reolink 4k überwachungskamera set", hot: true },
+  { id: 22, name: "Ring Video Doorbell Pro", category: "Sicherheit", price: 199.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1558002038-bb4237bb89bb?w=500&h=500&fit=crop&q=80",
+    description: "HD Türklingel mit Kamera & Alexa", search: "ring video doorbell pro alexa", hot: true },
+  { id: 23, name: "Arlo Pro 4 Außenkamera", category: "Sicherheit", price: 179.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=500&h=500&fit=crop&q=80",
+    description: "2K kabellos, Farbige Nachtsicht", search: "arlo pro 4 aussenkamera kabellos", hot: false },
+  { id: 24, name: "TP-Link Tapo Innenkamera", category: "Sicherheit", price: 39.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=500&h=500&fit=crop&q=80",
+    description: "1080p mit Bewegungsalarm", search: "tp-link tapo innenkamera", hot: false },
 
-  // SMART HOME - Ganzjährig
-  { id: 25, name: "Amazon Echo (4. Gen) + Alexa", category: "Smart Home", price: 99.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=400&fit=crop", description: "Smarter Lautsprecher mit Alexa", search: "amazon echo 4 generation alexa", hot: true },
-  { id: 26, name: "Philips Hue Starter Set", category: "Smart Home", price: 129.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop", description: "3 smarte Glühbirnen + Bridge", search: "philips hue starter set bridge", hot: true },
-  { id: 27, name: "TP-Link Smarte Steckdose 4er Set", category: "Smart Home", price: 49.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "4x smarte Steckdosen mit App & Alexa", search: "tp-link smarte steckdose set alexa", hot: false },
-  { id: 28, name: "Bosch Smart Home Bewegungsmelder", category: "Smart Home", price: 79.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "Smarter Bewegungsmelder fürs Zuhause", search: "bosch smart home bewegungsmelder", hot: false },
-  { id: 29, name: "Google Nest Thermostat", category: "Smart Home", price: 129.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop", description: "Smarte Heizungssteuerung, spart Energie", search: "google nest thermostat heizung", hot: true },
-  { id: 30, name: "Yale Smart Lock Türschloss", category: "Smart Home", price: 199.99, seasons: ["alle"], img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", description: "Smartes Türschloss mit App & Fingerabdruck", search: "yale smart lock türschloss fingerabdruck", hot: true },
+  // SMART HOME
+  { id: 25, name: "Amazon Echo (4. Gen)", category: "Smart Home", price: 99.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=500&h=500&fit=crop&q=80",
+    description: "Smarter Lautsprecher mit Alexa", search: "amazon echo 4 generation alexa", hot: true },
+  { id: 26, name: "Philips Hue Starter Set", category: "Smart Home", price: 129.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=500&fit=crop&q=80",
+    description: "3 smarte Glühbirnen + Bridge", search: "philips hue starter set bridge", hot: true },
+  { id: 27, name: "Google Nest Thermostat", category: "Smart Home", price: 129.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=500&fit=crop&q=80",
+    description: "Smarte Heizungssteuerung, spart Energie", search: "google nest thermostat heizung", hot: true },
+  { id: 28, name: "Yale Smart Lock Türschloss", category: "Smart Home", price: 199.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1558002038-bb4237bb89bb?w=500&h=500&fit=crop&q=80",
+    description: "Smartes Schloss mit App & Fingerabdruck", search: "yale smart lock türschloss", hot: true },
+  { id: 29, name: "TP-Link Smarte Steckdosen Set", category: "Smart Home", price: 49.99, seasons: ["alle"],
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop&q=80",
+    description: "4x smarte Steckdosen mit Alexa", search: "tp-link smarte steckdose set alexa", hot: false },
 
-  // SONNENPFLEGE - Sommer
-  { id: 31, name: "La Roche-Posay Anthelios SPF 50+", category: "Sonnenpflege", price: 22.99, seasons: ["sommer", "fruehling"], img: "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=400&h=400&fit=crop", description: "Dermatologisch getestet, 50ml", search: "la roche posay anthelios spf 50", hot: true },
+  // SONNENPFLEGE - nur Sommer
+  { id: 30, name: "La Roche-Posay Anthelios SPF 50+", category: "Sonnenpflege", price: 22.99, seasons: ["sommer", "fruehling"],
+    img: "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=500&h=500&fit=crop&q=80",
+    description: "Dermatologisch getestet, 50ml", search: "la roche posay anthelios spf 50", hot: true },
+  { id: 31, name: "Isdin Fusion Water SPF 50", category: "Sonnenpflege", price: 26.99, seasons: ["sommer"],
+    img: "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=500&h=500&fit=crop&q=80",
+    description: "Ultra-leicht, nicht fettend", search: "isdin fusion water spf 50", hot: true },
 
-  // GESCHENKE - Weihnachten
-  { id: 32, name: "Chanel N°5 Geschenkset", category: "Geschenke", price: 159.99, seasons: ["weihnachten", "valentinstag", "muttertag"], img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop", description: "Luxus Geschenkbox mit Parfum & Lotion", search: "chanel no 5 geschenkset", hot: true },
-  { id: 33, name: "Smart Home Starter Geschenkset", category: "Geschenke", price: 149.99, seasons: ["weihnachten"], img: "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=400&h=400&fit=crop", description: "Echo + Hue Birne + smarte Steckdose", search: "smart home geschenkset starter alexa", hot: true },
+  // GESCHENKE - saisonal
+  { id: 32, name: "Chanel N°5 Geschenkset", category: "Geschenke", price: 159.99, seasons: ["weihnachten", "valentinstag", "muttertag"],
+    img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&h=500&fit=crop&q=80",
+    description: "Luxus Geschenkbox mit Parfum & Lotion", search: "chanel no 5 geschenkset", hot: true },
+  { id: 33, name: "Smart Home Starter Geschenkset", category: "Geschenke", price: 149.99, seasons: ["weihnachten"],
+    img: "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=500&h=500&fit=crop&q=80",
+    description: "Echo + Hue + smarte Steckdose", search: "smart home geschenkset starter alexa", hot: true },
 ];
 
 const CATEGORIES = ["Alle", "Sicherheit", "Smart Home", "Parfum", "Sephora", "Patagonia", "Kawaii", "The Ordinary", "Caudalie", "Sonnenpflege", "Geschenke"];
 
 const catMeta = {
-  "Sicherheit":   { color: "#c0392b", bg: "#fff5f5" },
-  "Smart Home":   { color: "#1a6fb5", bg: "#f0f6ff" },
-  "Parfum":       { color: "#c0397a", bg: "#fff0f7" },
-  "Sephora":      { color: "#e74c3c", bg: "#fff5f5" },
-  "Patagonia":    { color: "#217a45", bg: "#f0fff5" },
-  "Kawaii":       { color: "#9b59b6", bg: "#f9f5ff" },
-  "The Ordinary": { color: "#1a1a1a", bg: "#f5f5f5" },
-  "Caudalie":     { color: "#7a5c3a", bg: "#fdf6ee" },
-  "Sonnenpflege": { color: "#d4880a", bg: "#fff8ec" },
-  "Geschenke":    { color: "#c0392b", bg: "#fff5f5" },
+  "Sicherheit":   { color: "#c0392b", bg: "#fff5f5", icon: "🔒" },
+  "Smart Home":   { color: "#1a6fb5", bg: "#f0f6ff", icon: "🏠" },
+  "Parfum":       { color: "#c0397a", bg: "#fff0f7", icon: "🌸" },
+  "Sephora":      { color: "#e74c3c", bg: "#fff5f5", icon: "💄" },
+  "Patagonia":    { color: "#217a45", bg: "#f0fff5", icon: "🧥" },
+  "Kawaii":       { color: "#9b59b6", bg: "#f9f5ff", icon: "🌸" },
+  "The Ordinary": { color: "#333333", bg: "#f5f5f5", icon: "🧴" },
+  "Caudalie":     { color: "#7a5c3a", bg: "#fdf6ee", icon: "🍇" },
+  "Sonnenpflege": { color: "#d4880a", bg: "#fff8ec", icon: "☀️" },
+  "Geschenke":    { color: "#c0392b", bg: "#fff5f5", icon: "🎁" },
 };
+
+const BRANDS = ["Chanel", "Dior", "Sephora", "Patagonia", "Kawaii", "The Ordinary", "Caudalie", "Wächter", "Ring", "Arlo", "Philips Hue", "Yale", "Google"];
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Alle");
@@ -124,99 +192,207 @@ export default function Home() {
   });
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f7f5f2", fontFamily: "'Segoe UI', Helvetica, Arial, sans-serif", color: "#1a1a1a" }}>
+    <div style={{ minHeight: "100vh", background: "#f4f2ef", fontFamily: "'Segoe UI', system-ui, sans-serif", color: "#1a1a1a" }}>
 
-      <div style={{ background: "#1a1a1a", color: "#ccc", fontSize: 12, textAlign: "center", padding: "8px 16px", letterSpacing: "0.06em" }}>
-        🚚 Versand ab €29 kostenlos · Chanel · Sephora · Patagonia · Kawaii · Sicherheit · Smart Home · Partner: premiumtrend-21
+      {/* TOP BAR */}
+      <div style={{ background: "#111", color: "#ccc", fontSize: 12, textAlign: "center", padding: "9px 16px", letterSpacing: "0.08em" }}>
+        ✨ Täglich aktualisiert · Chanel · Sephora · Patagonia · Smart Home · Amazon Partner: premiumtrend-21
       </div>
 
-      <header style={{ background: "#fff", borderBottom: "1px solid #e8e4df", padding: "0 32px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 38, height: 38, borderRadius: 10, background: "linear-gradient(135deg, #e07b39, #c0397a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, color: "#fff", fontWeight: 800 }}>T</div>
+      {/* HEADER */}
+      <header style={{ background: "#fff", borderBottom: "1px solid #e5e2dd", padding: "0 40px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 1px 20px rgba(0,0,0,0.07)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+          {/* Logo */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div style={{ width: 42, height: 42, borderRadius: 12, background: "linear-gradient(135deg, #ff6b35, #c0397a)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(192,57,122,0.3)" }}>
+              <span style={{ color: "#fff", fontWeight: 900, fontSize: 20 }}>T</span>
+            </div>
             <div>
-              <div style={{ fontSize: 20, fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em" }}>TrendBot</div>
-              <div style={{ fontSize: 10, color: "#999", letterSpacing: "0.12em", textTransform: "uppercase" }}>Premium Affiliate Shop</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "#111", letterSpacing: "-0.03em" }}>TrendBot</div>
+              <div style={{ fontSize: 10, color: "#aaa", letterSpacing: "0.15em", textTransform: "uppercase" }}>Premium Shop</div>
             </div>
           </div>
-          <div style={{ position: "relative", width: 280 }}>
-            <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", fontSize: 14, color: "#aaa" }}>🔍</span>
-            <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Tresor, Kamera, Chanel, Kawaii..." style={{ width: "100%", padding: "10px 14px 10px 38px", background: "#f7f5f2", border: "1.5px solid #e8e4df", borderRadius: 10, color: "#1a1a1a", fontSize: 14, outline: "none", fontFamily: "inherit", boxSizing: "border-box" }} onFocus={e => e.target.style.borderColor = "#e07b39"} onBlur={e => e.target.style.borderColor = "#e8e4df"} />
+
+          {/* Search */}
+          <div style={{ position: "relative", width: 320 }}>
+            <span style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", fontSize: 15, color: "#bbb" }}>🔍</span>
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Tresor, Chanel, Kawaii, Kamera..."
+              style={{ width: "100%", padding: "11px 16px 11px 42px", background: "#f4f2ef", border: "2px solid transparent", borderRadius: 12, color: "#1a1a1a", fontSize: 14, outline: "none", fontFamily: "inherit", boxSizing: "border-box", transition: "border-color 0.2s" }}
+              onFocus={e => e.target.style.borderColor = "#c0397a"}
+              onBlur={e => e.target.style.borderColor = "transparent"}
+            />
           </div>
-          <div style={{ background: "#FF9900", color: "#000", padding: "6px 14px", borderRadius: 8, fontSize: 12, fontWeight: 700 }}>amazon partner</div>
+
+          {/* Amazon Badge */}
+          <div style={{ background: "#FF9900", color: "#111", padding: "8px 18px", borderRadius: 10, fontSize: 13, fontWeight: 800, letterSpacing: "0.03em", boxShadow: "0 2px 8px rgba(255,153,0,0.3)" }}>
+            🛒 Amazon Partner
+          </div>
         </div>
       </header>
 
-      {/* SAISON BANNER */}
-      <div style={{ background: seasonInfo.bg, borderBottom: `2px solid ${seasonInfo.color}30`, padding: "20px 32px", textAlign: "center" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ fontSize: 26, fontWeight: 800, color: seasonInfo.color, marginBottom: 6 }}>{seasonInfo.label}</div>
-          <div style={{ fontSize: 14, color: "#666" }}>{seasonInfo.desc} · Automatisch aktualisiert</div>
+      {/* SEASON BANNER */}
+      <div style={{ background: seasonInfo.bg, padding: "28px 40px", textAlign: "center", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ fontSize: 32, fontWeight: 900, color: seasonInfo.color, marginBottom: 6, letterSpacing: "-0.02em" }}>
+            {seasonInfo.label}
+          </div>
+          <div style={{ fontSize: 15, color: "#777", fontWeight: 400 }}>
+            {seasonInfo.desc} · <span style={{ color: seasonInfo.color, fontWeight: 600 }}>Automatisch aktualisiert</span>
+          </div>
         </div>
       </div>
 
-      {/* MARKEN */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e8e4df", padding: "12px 32px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          {["Chanel", "Dior", "Sephora", "Patagonia", "Kawaii", "The Ordinary", "Caudalie", "Wächter", "Ring", "Philips Hue", "Bosch", "Yale"].map(brand => (
-            <div key={brand} style={{ padding: "4px 12px", border: "1px solid #e8e4df", borderRadius: 8, fontSize: 11, fontWeight: 600, color: "#444", background: "#fafafa" }}>{brand}</div>
+      {/* BRANDS BAR */}
+      <div style={{ background: "#fff", borderBottom: "1px solid #e5e2dd", padding: "14px 40px", overflowX: "auto" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
+          {BRANDS.map(brand => (
+            <span key={brand} onClick={() => setSearchTerm(brand)} style={{ padding: "5px 14px", border: "1.5px solid #e5e2dd", borderRadius: 20, fontSize: 12, fontWeight: 600, color: "#555", background: "#fafafa", cursor: "pointer", transition: "all 0.15s", whiteSpace: "nowrap" }}
+              onMouseEnter={e => { e.target.style.borderColor = "#c0397a"; e.target.style.color = "#c0397a"; }}
+              onMouseLeave={e => { e.target.style.borderColor = "#e5e2dd"; e.target.style.color = "#555"; }}
+            >{brand}</span>
           ))}
         </div>
       </div>
 
       {/* CATEGORIES */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e8e4df", padding: "12px 32px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", gap: 8, flexWrap: "wrap" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #e5e2dd", padding: "12px 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", gap: 8, flexWrap: "wrap" }}>
           {CATEGORIES.map((cat) => {
             const active = selectedCategory === cat;
             const meta = catMeta[cat];
             return (
-              <button key={cat} onClick={() => setSelectedCategory(cat)} style={{ padding: "7px 16px", borderRadius: 20, border: active ? `1.5px solid ${meta?.color || "#1a1a1a"}` : "1.5px solid #e8e4df", background: active ? (meta?.bg || "#f7f5f2") : "#fff", color: active ? (meta?.color || "#1a1a1a") : "#555", fontSize: 13, cursor: "pointer", fontFamily: "inherit", fontWeight: active ? 700 : 400, whiteSpace: "nowrap" }}>{cat}</button>
+              <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
+                padding: "8px 18px", borderRadius: 22,
+                border: active ? `2px solid ${meta?.color || "#111"}` : "2px solid #e5e2dd",
+                background: active ? (meta?.bg || "#f4f2ef") : "#fff",
+                color: active ? (meta?.color || "#111") : "#666",
+                fontSize: 13, cursor: "pointer", fontFamily: "inherit",
+                fontWeight: active ? 700 : 500, whiteSpace: "nowrap",
+                transition: "all 0.15s",
+                display: "flex", alignItems: "center", gap: 5,
+              }}>
+                {meta?.icon && <span>{meta.icon}</span>}
+                {cat}
+              </button>
             );
           })}
         </div>
       </div>
 
-      <main style={{ padding: "28px 32px 80px", maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ fontSize: 13, color: "#999", marginBottom: 20 }}>
-          {filtered.length} Produkte · {seasonInfo.label} · Alle Preise inkl. MwSt.
+      {/* MAIN GRID */}
+      <main style={{ padding: "32px 40px 80px", maxWidth: 1280, margin: "0 auto" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+          <div style={{ fontSize: 14, color: "#999", fontWeight: 500 }}>
+            <span style={{ color: "#111", fontWeight: 700 }}>{filtered.length}</span> Produkte gefunden · {seasonInfo.label}
+          </div>
+          {searchTerm && (
+            <button onClick={() => setSearchTerm("")} style={{ fontSize: 12, color: "#c0397a", background: "none", border: "none", cursor: "pointer", fontWeight: 600 }}>
+              ✕ Suche löschen
+            </button>
+          )}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 18 }}>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 20 }}>
           {filtered.map((product) => {
             const hovered = hoveredId === product.id;
-            const meta = catMeta[product.category] || { color: "#e07b39", bg: "#fff8f4" };
+            const meta = catMeta[product.category] || { color: "#e07b39", bg: "#fff8f4", icon: "🛍️" };
             return (
-              <div key={product.id} onMouseEnter={() => setHoveredId(product.id)} onMouseLeave={() => setHoveredId(null)} style={{ background: "#fff", border: `1.5px solid ${hovered ? meta.color : "#e8e4df"}`, borderRadius: 14, overflow: "hidden", transition: "all 0.2s ease", transform: hovered ? "translateY(-4px)" : "none", boxShadow: hovered ? "0 16px 40px rgba(0,0,0,0.12)" : "0 1px 4px rgba(0,0,0,0.04)", display: "flex", flexDirection: "column" }}>
-                <div style={{ height: 200, overflow: "hidden", position: "relative", background: meta.bg }}>
+              <div
+                key={product.id}
+                onMouseEnter={() => setHoveredId(product.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                style={{
+                  background: "#fff",
+                  border: `2px solid ${hovered ? meta.color : "transparent"}`,
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  transition: "all 0.25s ease",
+                  transform: hovered ? "translateY(-6px)" : "none",
+                  boxShadow: hovered ? `0 20px 48px rgba(0,0,0,0.14), 0 0 0 0px ${meta.color}` : "0 2px 12px rgba(0,0,0,0.07)",
+                  display: "flex", flexDirection: "column",
+                  cursor: "pointer",
+                }}
+              >
+                {/* Image */}
+                <div style={{ height: 210, overflow: "hidden", position: "relative", background: meta.bg }}>
                   {!imgErrors[product.id] ? (
-                    <img src={product.img} alt={product.name} onError={() => setImgErrors(prev => ({ ...prev, [product.id]: true }))} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s ease", transform: hovered ? "scale(1.06)" : "scale(1)" }} />
+                    <img
+                      src={product.img}
+                      alt={product.name}
+                      onError={() => setImgErrors(prev => ({ ...prev, [product.id]: true }))}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease", transform: hovered ? "scale(1.08)" : "scale(1)" }}
+                    />
                   ) : (
-                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>🛍️</div>
+                    <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, background: meta.bg }}>
+                      <span style={{ fontSize: 48 }}>{meta.icon}</span>
+                      <span style={{ fontSize: 11, color: "#aaa" }}>Bild nicht verfügbar</span>
+                    </div>
                   )}
-                  {product.hot && <span style={{ position: "absolute", top: 10, right: 10, background: "#e53935", color: "#fff", fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 6 }}>🔥 TREND</span>}
-                  <span style={{ position: "absolute", bottom: 8, left: 10, fontSize: 10, color: meta.color, fontWeight: 700, background: "rgba(255,255,255,0.9)", padding: "2px 7px", borderRadius: 4, textTransform: "uppercase" }}>{product.category}</span>
+                  {/* Badges */}
+                  <div style={{ position: "absolute", top: 10, left: 10, display: "flex", gap: 6 }}>
+                    {product.hot && (
+                      <span style={{ background: "#e53935", color: "#fff", fontSize: 10, fontWeight: 800, padding: "4px 10px", borderRadius: 20, letterSpacing: "0.04em" }}>🔥 TREND</span>
+                    )}
+                  </div>
+                  {/* Category tag */}
+                  <div style={{ position: "absolute", bottom: 10, right: 10 }}>
+                    <span style={{ background: "rgba(255,255,255,0.95)", color: meta.color, fontSize: 10, fontWeight: 800, padding: "4px 10px", borderRadius: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                      {meta.icon} {product.category}
+                    </span>
+                  </div>
                 </div>
-                <div style={{ padding: "14px 16px 16px", flex: 1, display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 5, lineHeight: 1.3 }}>{product.name}</div>
-                  <div style={{ fontSize: 12, color: "#888", marginBottom: 14, flex: 1, lineHeight: 1.5 }}>{product.description}</div>
+
+                {/* Content */}
+                <div style={{ padding: "16px 18px 18px", flex: 1, display: "flex", flexDirection: "column" }}>
+                  <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 6, lineHeight: 1.35, color: "#111" }}>{product.name}</div>
+                  <div style={{ fontSize: 12, color: "#999", marginBottom: 16, flex: 1, lineHeight: 1.6 }}>{product.description}</div>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div>
-                      <div style={{ fontSize: 18, fontWeight: 800 }}>€{product.price.toFixed(2)}</div>
-                      <div style={{ fontSize: 10, color: "#aaa" }}>inkl. MwSt.</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#111", letterSpacing: "-0.02em" }}>€{product.price.toFixed(2)}</div>
+                      <div style={{ fontSize: 10, color: "#bbb", marginTop: 1 }}>inkl. MwSt.</div>
                     </div>
-                    <a href={makeAmazonLink(product.search)} target="_blank" rel="noopener noreferrer" style={{ padding: "9px 14px", background: hovered ? meta.color : "#FF9900", color: hovered ? "#fff" : "#000", borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: "none", transition: "all 0.2s" }}>Bei Amazon →</a>
+                    <a
+                      href={makeAmazonLink(product.search)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        padding: "10px 16px",
+                        background: hovered ? meta.color : "#FF9900",
+                        color: hovered ? "#fff" : "#111",
+                        borderRadius: 10, fontSize: 12, fontWeight: 800,
+                        textDecoration: "none", transition: "all 0.2s",
+                        letterSpacing: "0.02em", whiteSpace: "nowrap",
+                        boxShadow: hovered ? `0 4px 12px ${meta.color}50` : "none",
+                      }}
+                    >
+                      Bei Amazon →
+                    </a>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {filtered.length === 0 && (
+          <div style={{ textAlign: "center", padding: "80px 20px", color: "#aaa" }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: "#555" }}>Keine Produkte gefunden</div>
+            <div style={{ fontSize: 14, marginTop: 8 }}>Versuche einen anderen Suchbegriff</div>
+            <button onClick={() => { setSearchTerm(""); setSelectedCategory("Alle"); }} style={{ marginTop: 20, padding: "10px 24px", background: "#c0397a", color: "#fff", border: "none", borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Alle zeigen</button>
+          </div>
+        )}
       </main>
 
-      <footer style={{ background: "#1a1a1a", color: "#777", padding: "32px", textAlign: "center", fontSize: 12, lineHeight: 2 }}>
-        <div style={{ color: "#fff", fontWeight: 700, marginBottom: 4, fontSize: 14 }}>TrendBot · premiumtrend-21</div>
-        <div>Als Amazon-Partner verdiene ich an qualifizierten Käufen. Preise können variieren.</div>
-        <div style={{ marginTop: 6, color: "#555", fontSize: 11 }}>© 2025 TrendBot · Alle Markenrechte bei den jeweiligen Eigentümern</div>
+      {/* FOOTER */}
+      <footer style={{ background: "#111", color: "#666", padding: "40px", textAlign: "center", fontSize: 12, lineHeight: 2.2 }}>
+        <div style={{ color: "#fff", fontWeight: 800, marginBottom: 4, fontSize: 16, letterSpacing: "-0.01em" }}>TrendBot · premiumtrend-21</div>
+        <div>Chanel · Dior · Sephora · Patagonia · Kawaii · The Ordinary · Caudalie · Smart Home · Sicherheit</div>
+        <div style={{ marginTop: 8 }}>Als Amazon-Partner verdiene ich an qualifizierten Käufen. Preise können variieren.</div>
+        <div style={{ marginTop: 8, color: "#444", fontSize: 11 }}>© 2025 TrendBot · Alle Markenrechte bei den jeweiligen Eigentümern</div>
       </footer>
     </div>
   );
