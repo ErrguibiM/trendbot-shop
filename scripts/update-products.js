@@ -1,46 +1,92 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const AFFILIATE_TAG = "premiumtrend-21";
+const PRODUCTS_PATH = path.join(__dirname, "../data/products.json");
 
-const TREND_SEARCHES = [
-  { search: "niacinamid serum trending", category: "The Ordinary", basePrice: 9.99 },
-  { search: "vitamin c serum 2025", category: "Hautpflege", basePrice: 19.99 },
-  { search: "chanel parfum bestseller", category: "Parfum", basePrice: 89.99 },
-  { search: "smart home 2025 bestseller", category: "Smart Home", basePrice: 49.99 },
-  { search: "kawaii mode trend 2025", category: "Kawaii", basePrice: 39.99 },
+const TREND_PRODUCTS = [
+  {
+    id: "ordinary-niacinamide",
+    name: "The Ordinary Niacinamide 10% + Zinc 1%",
+    category: "The Ordinary",
+    asin: "B07QBQXFHZ",
+    description: "Beliebtes Serum für Hautbild, Poren und Talgkontrolle.",
+    hot: true
+  },
+  {
+    id: "ordinary-hyaluronic",
+    name: "The Ordinary Hyaluronic Acid 2% + B5",
+    category: "The Ordinary",
+    asin: "B07L4SHRDG",
+    description: "Feuchtigkeitsserum für die tägliche Hautpflege.",
+    hot: false
+  },
+  {
+    id: "laroche-anthelios",
+    name: "La Roche-Posay Anthelios SPF 50+",
+    category: "Sonnenpflege",
+    asin: "B003JUZG4G",
+    description: "Sonnenschutz für Gesicht und Alltag.",
+    hot: true
+  },
+  {
+    id: "sony-wh1000xm5",
+    name: "Sony WH-1000XM5 Kopfhörer",
+    category: "Technik",
+    asin: "B09XS7JWHH",
+    description: "Kabellose Kopfhörer mit Noise Cancelling.",
+    hot: true
+  }
 ];
 
-function getCurrentSeason() {
-  const month = new Date().getMonth() + 1;
-  const day = new Date().getDate();
-  if (month === 12 || (month === 11 && day >= 25)) return "weihnachten";
-  if (month === 3 || (month === 4 && day <= 20)) return "ostern";
-  if (month === 2 && day <= 20) return "valentinstag";
-  if (month === 5) return "muttertag";
-  if (month >= 6 && month <= 8) return "sommer";
-  if (month >= 9 && month <= 10) return "herbst";
-  if (month >= 3 && month <= 5) return "fruehling";
-  return "winter";
+function ensureDataFolder() {
+  const dataDir = path.dirname(PRODUCTS_PATH);
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
 }
 
-async function runAgent() {
-  console.log("🤖 TrendBot Agent gestartet:", new Date().toLocaleString('de-DE'));
-  const season = getCurrentSeason();
-  console.log("📅 Aktuelle Saison:", season);
-  const indexPath = path.join(__dirname, '../pages/index.jsx');
-  let currentContent = fs.readFileSync(indexPath, 'utf8');
-  const updateTime = new Date().toLocaleDateString('de-DE', { 
-    day: '2-digit', month: '2-digit', year: 'numeric', 
-    hour: '2-digit', minute: '2-digit' 
+function readProducts() {
+  if (!fs.existsSync(PRODUCTS_PATH)) {
+    return [];
+  }
+
+  try {
+    return JSON.parse(fs.readFileSync(PRODUCTS_PATH, "utf8"));
+  } catch {
+    return [];
+  }
+}
+
+function removeDuplicates(products) {
+  const seen = new Set();
+
+  return products.filter((product) => {
+    const key = product.asin || product.id;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
-  currentContent = currentContent.replace(
-    /Zuletzt aktualisiert:.*?(?=·)|Täglich aktualisiert/g,
-    `Zuletzt aktualisiert: ${updateTime}`
-  );
-  fs.writeFileSync(indexPath, currentContent);
-  console.log("✅ Update erfolgreich:", updateTime);
 }
 
-runAgent().catch(console.error);
+function updateProducts() {
+  ensureDataFolder();
+
+  const oldProducts = readProducts();
+  const merged = [...TREND_PRODUCTS, ...oldProducts];
+
+  const cleanProducts = removeDuplicates(merged).map((product) => ({
+    ...product,
+    affiliateTag: "premiumtrend-21",
+    amazonUrl: `https://www.amazon.de/dp/${product.asin}?tag=premiumtrend-21`,
+    priceText: "Preis bei Amazon prüfen",
+    lastChecked: new Date().toISOString().slice(0, 10)
+  }));
+
+  fs.writeFileSync(PRODUCTS_PATH, JSON.stringify(cleanProducts, null, 2));
+
+  console.log("✅ TrendBot Agent erfolgreich aktualisiert");
+  console.log(`📦 Produkte gespeichert: ${cleanProducts.length}`);
+  console.log(`📁 Datei: ${PRODUCTS_PATH}`);
+}
+
+updateProducts();
